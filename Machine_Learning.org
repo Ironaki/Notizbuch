@@ -1,0 +1,35 @@
+** Decision Tree
+*** Doesn’t care about scaling of distribution of data
+*** Criteria for measuring impurity
+- Gini Index
+- Cross-Entropy
+*** Pruning Method
+- max_depth: it puts the same depth limit on everywhere in the tree, this is not very fine grained
+- max_leaf_nodes: prioritize the ones that decrease the impurity the most
+- min_samples_split: Sometimes, splits do not decrease impurity enough
+*** Questions
+**** Why does sklearn DT has random states?
+****** [[https://stackoverflow.com/questions/39158003/confused-about-random-state-in-decision-tree-of-scikit-learn][Answer]]: TLDR: Random algorithms to find local minimum
+****** Instability: Example in Andy's slides (P. 22)
+*** Andy's Comments
+**** I wouldn't really say trees are interpretable but small trees are interpretable. So that's also the reason why you might want to restrict the rows of the tree. So you can easily communicate and easily explained.
+**** For categorical data: You can use categorical data in trees, and you can do this in R up to a couple of hundred different values. In scikit-learns, unfortunately, it’s not there yet. The cool thing about it working with categorical data is that it allows you to split into any subsets of the categories. 
+
+** Random Forest
+*** Random forest comes with bootstrap
+*** Tuning RF:
+- max_features: For each node of splitting decision, originally you want to scan all over the features and all the thresholds. Now you select just the subset of the number of features and just look for splits there. This is done for each node **independently**. In the end, the tree will use all the features probably, if it's deep enough, eventually it might use all the features but you randomize the tree building process in a way that hopefully de-correlated the error of the different trees.
+- n_estimators: number of trees
+- max_depth, max_leaf_nodes, min_sample_split
+*** Usually, the more the trees are, the better the model is. (Do now grid search number of the trees)
+
+
+** Ensemble in General
+*** Soft Vote vs Hard Vote
+- sklearn.ensemble.VotingClassifier
+- hard vote only take into account of absolute numbers; soft vote considers probabilities. [[https://stats.stackexchange.com/questions/320156/hard-voting-versus-soft-voting-in-ensemble-based-methods][Example]]
+*** Ways to create randomness
+- Different models
+- Random seeds if available
+- Bagging (Bootstrap AGGregation): Sample with replacement
+
