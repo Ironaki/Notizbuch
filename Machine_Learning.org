@@ -22,9 +22,42 @@
 - n_estimators: number of trees
 - max_depth, max_leaf_nodes, min_sample_split
 *** Usually, the more the trees are, the better the model is. (Do now grid search number of the trees)
-
-
-** Ensemble in General
+*** Implementation
+There is and Random Forest implementation in XGBoost. It supports L1 & L2 regularization?
+** Gradient Boost
+*** Boosting
+- Iteratively try to improve a model built up from weak learners
+- Weak learners -> Strong learner
+*** How tree is built
+- For regression, the second tree is build up the residuals between prediction of the first tree and the real values (Andy's slides P.7: the example in 1D)
+- For classification. It builds a regression tree to predict probabilities, and the goal is to minimize the log loss.
+- Usually build a shallow tree or stump
+- It comes with a learning rate for each tree
+*** Gradient Boost vs Random Forest
+| RF                        | GB                                  |
+|---------------------------+-------------------------------------|
+| Build trees independently | Build tree one after one another    |
+| More trees -> no overfit  | More trees -> can perfectly overfit |
+| Usually deep trees        | Shallow trees                       |
+*** Tuning
+- n_estimators
+- learning rate
+- usually strong pruning
+**** Can also try early stop and play with
+- max_features
+- sub-sampling
+- regularization
+*** Implementation
+- Scikit-learn: As for version 0.21, scikit-learn implementation is actually faster than XGBoost. sklearn doesn't support GPU
+- XGBoost: support categorical data, support GPU
+** Tree-based Model in General
+*** *Andy's Comment: 99% of time people use Gradient Boost or Logistic Regression, LOL*
+*** Model non-linear relationships
+*** Doesn’t care about scaling, no need for feature engineering
+*** Single tree: very interpretable (if small)
+*** Random forests very robust, good benchmark
+*** Gradient boosting often best performance with careful tuning
+** Ensemble Methods
 *** Soft Vote vs Hard Vote
 - sklearn.ensemble.VotingClassifier
 - hard vote only take into account of absolute numbers; soft vote considers probabilities. [[https://stats.stackexchange.com/questions/320156/hard-voting-versus-soft-voting-in-ensemble-based-methods][Example]]
