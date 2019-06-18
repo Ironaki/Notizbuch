@@ -1,0 +1,45 @@
+* EPFL Scala
+** Functional Programming Principle in Scala
+*** Week 1
+**** Lecture 1.1
+***** Imperative Programming 
++ modify mutable variables
++ using assignment
++ control flow: e.g. if-else, loop
+***** Function Programming
++ restricted sense: no mutable variable/assignment/control structure
++ wider sense: focus on functions
+**** Lecture 1.2
+***** Substitution model
++ reduce an expression to a value
++ works on expression that does not have side effect
++ does not always terminate
+****** Evaluation Strategy
++ call-by-name
++ call-by-value
+**** Lecture 1.3
++ call-by-value terminates -> call-by-name terminates (BUT the other direction is not true)
++ Scala normally use call-by-value, but can force to use call-by-name
+#+BEGIN_SRC scala
+def constOne(x: Int, y: => Int) = 1 // 2nd arg is call-by-name
+constOne(1+2, loop) // This is OK
+constOne(loop, 1+2) // infinite loop
+#+END_SRC
+**** Lecture 1.4
++ if-else as an expression
++ boolean as predicate
+***** Value Definitions
++ /def/: by-name
++ /val/: by-value
+#+BEGIN_SRC scala
+def loop: Boolean = loop
+val x = loop // infinite loop
+def x = loop // This is ok
+#+END_SRC
+**** Lecture 1.5
++ Example: Problems for floating point numbers
+
+
+
+
+
