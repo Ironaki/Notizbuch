@@ -56,7 +56,10 @@ a+
 b
 #+END_SRC
 **** Lecture 1.7 Tail Recursion
-+ Tail recursion is the functional form of a loop3
++ Tail recursion is the functional form of a loop
+**** Assignment
+Challenging Part
+- countChange
 *** Week 2
 **** Lecture 2.1 Higher-Order Functions
 + Function Type
@@ -125,4 +128,8 @@ In all three cases, users will observe the same behavior of Rational
 def + (a: Int, b: Int) = a+b
 #+END_SRC
 The precedence of an operator is determined by its first character
+**** Assignment:
+Challenging part
+- exists
+- map 
 
