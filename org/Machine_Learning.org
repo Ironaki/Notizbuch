@@ -1,3 +1,4 @@
+* Supervised Algorithms
 ** Decision Tree
 *** Doesn’t care about scaling of distribution of data
 *** Criteria for measuring impurity
@@ -65,4 +66,14 @@ There is and Random Forest implementation in XGBoost. It supports L1 & L2 regula
 - Different models
 - Random seeds if available
 - Bagging (Bootstrap AGGregation): Sample with replacement
+
+* Unsupervised Algorithms
+** K-Means
+*** Properties
+- Cluster always convex in shape
+- Can be used for feature extraction
+*** Initialization
+-For sklearn, there are two
+  - K-Means++ (Pick the furthest points)
+  - Random
 

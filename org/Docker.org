@@ -1,0 +1,9 @@
+* Dockerfile & docker build
+
+#+BEGIN_SRC Dockerfile
+FROM scratch
+#+END_SRC
+
+** docker build
+- Context folder to docker server
+- Usually use current folder for context folder
