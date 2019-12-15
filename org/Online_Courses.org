@@ -132,4 +132,99 @@ The precedence of an operator is determined by its first character
 Challenging part
 - exists
 - map 
+*** Week 3
+**** Lecture 3.1 Class Hierarchies
+***** Abstract Class and Class Extensions (with ~extend~ keyword)
+***** Persistent Data Structures
+- Keeps the old data structure
+#+BEGIN_SRC scala
+// The following class implement in a functional way (no mutation)
+// The takeaway here is that it preserves the old version of the tree, when we insert a new node in the tree
+object intsets {
+  val t1 = new NonEmpty(3, new Empty, new Empty)
+  val t2 = t1 incl 4
+}
 
+abstract class IntSet {
+  def incl(x: Int): IntSet
+  def contains(x: Int): Boolean
+  def union(other: IntSet): IntSet
+}
+
+class Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new NonEmpty(x, new Empty, new Empty)
+  def union(other: IntSet): IntSet = other
+}
+
+class NonEmpty(elem: Int, left: IntSet, right: IntSet) extends IntSet {
+  def contains(x: Int): Boolean =
+    if (x < elem) left contains x
+    else if (x > elem) right contains x
+    else true
+
+  def incl(x: Int): IntSet =
+    if (x < elem) new NonEmpty(elem, left incl x, right)
+    else if (x > elem) new NonEmpty(elem, left, right incl x) else this
+
+  def union(other: IntSet): IntSet =
+    ((left union right) union other) incl elem  // Makes me sad, since I cannot right this kind of recursion...
+}
+#+END_SRC
+***** Class vs Object
+#+BEGIN_SRC scala
+// class can be initiated through ~new~ keyword mutiple times
+class Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new NonEmpty(x, new Empty, new Empty)
+}
+// object is only created once
+// there is no ~new~ keyword
+object Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new NonEmpty(x, Empty, Empty)
+}
+#+END_SRC
+***** Dynamic method dispatch in OOP ~ Higher-order functions (Substitution Model)
+- They're quite similar in substitution model
+**** Lecture 3.2 - How Classes Are Organized
+***** Package
+***** Trait (inherit with ~with~ keyword) (class can ~extends~ trait)
+- resembles =interface= in Java
+- trait cannot have value parameter like class
+***** What is the type of the following expression
+#+BEGIN_SRC scala
+if (true) 1 else false
+// scala.AnyVal
+#+END_SRC
+**** Lecture 3.3 - Polymorphism
+#+BEGIN_SRC scala
+trait List[T] {
+  def isEmpty: Boolean
+  def head: T
+  def tail: List[T]
+}
+
+// For parameters in the following function signatures, ~val~ is need
+// Since we use ~val~ here, they are just a special way to define class method
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+  def isEmpty = false
+}
+
+class Nil[T] extends List[T] {
+  def isEmpty = true
+  def head: Nothing = throw new NoSuchElementException("Nil.head")
+  def tail: Nothing = throw new NoSuchElementException("Nil.tail")
+}
+// Nothing is a subtype of any type
+#+END_SRC
+***** Type Erasure
+- All type parameters and arguments are removed before evaluating the program
+- Languages with: Java, Scala, Hakell, ML, OCaml
+- Languages without: C++, C#
+***** Polymorphism
+- Subtyping
+- Generics
+
+*** Week 4
+**** Lecture 4.1 - Objects Everywhere

@@ -1,4 +1,15 @@
 * Supervised Algorithms
+** kNN
+*** nearest centroid
+- works better on high dimensional data [Müller]
+
+- computationally efficient compared to knn when data set is large
+
+- has a linear decision boundary: [[https://youtu.be/Vn_gbG-WfTw?t=349][Vector representation]]
+
+- sklearn.neighbors.NearestCentroid
+
+- nearest shrunken centroid (simplify the linear boundary even further, by shrinking the centroid by a threshold)
 ** Decision Tree
 *** Doesn’t care about scaling of distribution of data
 *** Criteria for measuring impurity
