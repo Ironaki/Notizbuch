@@ -1,3 +1,5 @@
+* Memo
+** Try bind with rit docker
 * Dockerfile & docker build
 
 #+BEGIN_SRC Dockerfile

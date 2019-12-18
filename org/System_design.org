@@ -1,0 +1,18 @@
+* Overview
+** [[https://www.lecloud.net/tagged/scalability][Scability for Dummies]]
+*** Clone
+- Deploy same code on multiple servers
+- A external centralized database not on sever
+*** Database
+**** Scale up RMDB
+- Master slave duplication
+- sharding/tuning ...
+**** Use NoSQL
+**** Joins/computing for users
+*** Cache
+- In memory cache like [[https://github.com/antirez/redis][Redis]]:
+  /Implementation of data structures stress on memory efficiency, so data structures inside Redis will likely use less memory compared to the same data structure modeled using an high level programming language./
+*** Async
+- Finish computing intensive work periodically:
+  dynamic -> static content conversion every hour
+- Use a queue for user tasks
