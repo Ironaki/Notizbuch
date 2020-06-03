@@ -28,7 +28,7 @@ def add():
 
     cat = Cats(name=name, price=price, breed=breed)
     db.session.add(cat)
-    db.seddion.commit()
+    db.session.commit()
     return json.dumps("Added"), 200
 
 @app.route("/remove/<cat_id>", methods=["DELETE"])
