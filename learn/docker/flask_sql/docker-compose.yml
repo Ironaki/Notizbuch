@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  db:
+    container_name: postgres
+    image: postgres:latest
+    env_file: database.conf
+    ports:
+      - 5432:5432
+    volumes:
+      - db_volume:/var/lib/postgresql
+
+  webserver:
+    build: .
+    container_name: flask_app
+    env_file: database.conf
+    ports:
+      - 5000:5000
+
+volumes:
+  db_volume:
