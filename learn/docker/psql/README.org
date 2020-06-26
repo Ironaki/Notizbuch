@@ -1,0 +1,7 @@
+* Access postgres with docker exec
+
+#+BEGIN_SRC sh
+docker exec -it postgres psql -U <username> -d <database>
+
+docker exec -it postgres psql -U zl -d main
+#+END_SRC
