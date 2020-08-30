@@ -1,0 +1,16 @@
+* Fix
+** Display
+*** Display get switched/rotated on wake up
+Try this: https://github.com/jakehilborn/displayplacer
+Works much better than setting up manually from display pref panel
+#+BEGIN_SRC shell
+# Install
+brew tap jakehilborn/jakehilborn && brew install displayplacer
+
+# Setup your display and run the command
+# The last line will be what you want to run to restore display setup
+displayplacer list
+
+# Run this to restore; Automate with Alfred or other tools (May need to use absolute path to binary)
+displayplacer "id:8621925B-B83D-4807-9416-6A8CBF1D2021 res:1920x1080 hz:60 color_depth:8 scaling:on origin:(0,0) degree:0" "id:239E4D18-6D7B-69BF-75DE-55FF9FFE5BC9 res:1080x1920 hz:60 color_depth:4 scaling:on origin:(-1080,-400) degree:90"
+#+END_SRC
