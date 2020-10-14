@@ -1,0 +1,21 @@
+* Style
+** What is PEP8, pep8, flake8, black etc.
+- PEP8: https://www.python.org/dev/peps/pep-0008/
+- pep8: a tool to check your Python code against some of the style conventions in PEP 8.
+- pyflakes: A simple program which checks Python source files for errors.
+- flake8: pyflakes+pep8
+- black/autopep8/yapf: formatter
+** Formatter Comparison: Black vs Yapf vs autopep8
+*** After reading these, I think black is better:
+- https://www.kevinpeters.net/auto-formatters-for-python
+- https://news.ycombinator.com/item?id=17155048
+- https://www.reddit.com/r/Python/comments/8sbipd/why_do_people_prefer_black_over_yapf/
+*** Black's good point
+- Consistency
+- Minimal config
+*** Black's ambivelant point
+- Enforce double quotation mark
+** Black:
+*** E203 not pep8 compliant, but false positive in pep8 (flake8)
+- [!]: https://github.com/psf/black/issues/544
+- [v]: https://github.com/psf/black/blob/1af648d0c14342021bb8c4220fb8adcd7362d45d/docs/compatible_configs.md#flake8
