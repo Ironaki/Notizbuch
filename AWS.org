@@ -4,7 +4,7 @@
 Link above is better than the docs IMO
 **** Low level API
 - [?] Seems like there is a [[https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html][low-level API]] as well. Might require data type to be specified
-- [!] Problem: [[https://stackoverflow.com/questions/44377713/how-to-add-item-to-string-set-on-dynamodb-with-boto3][[S] Add string to a set]]
+- [!] Problem: [[https://stackoverflow.com/questions/44377713/how-to-add-item-to-string-set-on-dynamodb-with-boto3][[SO] Add string to a set]]
   + solved by not specifying data type
 ** Operations
 *** Query

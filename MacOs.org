@@ -1,8 +1,8 @@
 * Fix
 ** Display
 *** Display get switched/rotated on wake up
-Try this: https://github.com/jakehilborn/displayplacer
-Works much better than setting up manually from display pref panel
+- Try this: https://github.com/jakehilborn/displayplacer
+- Works much better than setting up manually from display pref panel
 #+BEGIN_SRC shell
 # Install
 brew tap jakehilborn/jakehilborn && brew install displayplacer
