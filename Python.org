@@ -1,6 +1,15 @@
+* Libaries
+** Regex
+*** Escape and r-string
+- If we don't use r-string, we need double backslash for escaping. (Although in some (most?) cases, single backslash seems to work)
+****  [!] Do we need to escape hyphen? [[https://stackoverflow.com/a/9589642][`SO`]]
+- There's a small problem with the example given in the SO answer above. In ~[a-z\-0-9]~, the hyphen in the middle doesn't need to be escaped. Let's just play it safe and put ~-~ at the end of the pattern.
+- Hyphen can apply to character in ASCII order.
+**** re.escape -> Identify escape characters
+https://docs.python.org/3/library/re.html#re.escape
 * Questions
 ** Underscore and Private method
-[[https://stackoverflow.com/a/1301369][[SO][Double undersocre -> name mangling]]
+[[https://stackoverflow.com/a/1301369][`SO`[Double undersocre -> name mangling]]
 * Style
 ** What is PEP8, pep8, flake8, black etc.
 - PEP8: https://www.python.org/dev/peps/pep-0008/
